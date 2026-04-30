@@ -10,6 +10,45 @@ $services = [
     'Lymphatic Drainage',
 ];
 
+$serviceDetails = [
+    [
+        'title' => 'Body Sculpting Fat Removal',
+        'category' => 'Sculpt',
+        'description' => 'Non-invasive contour planning for stubborn areas that need a refined, confident silhouette.',
+        'image' => 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'title' => 'Hydra Facial',
+        'category' => 'Glow',
+        'description' => 'A polished cleansing, exfoliating, and hydrating facial for luminous event-ready skin.',
+        'image' => 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'title' => 'Body Contouring',
+        'category' => 'Define',
+        'description' => 'Shape-focused treatment sessions designed around waist, thighs, arms, and body balance.',
+        'image' => 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'title' => 'Body Slimming',
+        'category' => 'Slim',
+        'description' => 'A measured slimming experience pairing sculpting goals with supportive wellness guidance.',
+        'image' => 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'title' => 'Skin Tightening',
+        'category' => 'Firm',
+        'description' => 'Treatment plans created to support a smoother, firmer-looking finish over time.',
+        'image' => 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80',
+    ],
+    [
+        'title' => 'Lymphatic Drainage',
+        'category' => 'Recover',
+        'description' => 'Gentle drainage care for post-treatment recovery, lightness, and a more refreshed feel.',
+        'image' => 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80',
+    ],
+];
+
 $pages = ['home', 'services', 'process', 'about', 'contact', 'book'];
 $page = $_GET['page'] ?? 'home';
 if (!in_array($page, $pages, true)) {
@@ -79,7 +118,7 @@ function e(string $value): string
     <title>BodyNova Aesthetics | Body Sculpting & Skin Treatments</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --green: #2E8B57;
@@ -754,14 +793,579 @@ function e(string $value): string
                 padding: 24px;
             }
         }
+        /* Concierge-inspired redesign override: warm editorial, image-led, and mobile-first. */
+        :root {
+            --green: #2E8B57;
+            --green-dark: #226741;
+            --green-light: #e9f2ec;
+            --gold: #D4AF37;
+            --gold-dark: #a98625;
+            --ink: #18120f;
+            --muted: #6f6258;
+            --cream: #fffaf4;
+            --white: #ffffff;
+            --sand: #f2e5d8;
+            --blush: #efd5cc;
+            --terracotta: #b57961;
+            --shadow: 0 28px 80px rgba(48, 34, 26, 0.16);
+            --radius: 34px;
+        }
+
+        body {
+            color: var(--ink);
+            background: var(--cream);
+            font-family: "Manrope", Arial, sans-serif;
+        }
+
+        h1,
+        h2,
+        .brand-word {
+            font-family: "DM Serif Display", Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.045em;
+        }
+
+        h3,
+        h4 {
+            font-family: "Manrope", Arial, sans-serif;
+        }
+
+        .promo-bar {
+            padding: 10px 18px;
+            color: var(--cream);
+            background: var(--ink);
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+        }
+
+        .promo-bar a {
+            color: var(--gold);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.72);
+        }
+
+        .site-header {
+            background: rgba(255, 250, 244, 0.9);
+            border-bottom: 1px solid rgba(24, 18, 15, 0.08);
+        }
+
+        .nav-wrap {
+            min-height: 86px;
+        }
+
+        .logo {
+            color: var(--ink);
+            font-family: "Manrope", Arial, sans-serif;
+        }
+
+        .logo-mark {
+            color: var(--cream);
+            background: var(--ink);
+            border: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 2px rgba(212, 175, 55, 0.55);
+        }
+
+        .brand-word {
+            font-size: 1.65rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--ink);
+            background: var(--sand);
+        }
+
+        .button {
+            min-height: 50px;
+            padding: 13px 24px;
+            color: var(--cream);
+            background: var(--ink);
+            box-shadow: 0 16px 36px rgba(24, 18, 15, 0.18);
+        }
+
+        .button:hover {
+            background: #2a211d;
+            box-shadow: 0 22px 48px rgba(24, 18, 15, 0.24);
+        }
+
+        .button.gold {
+            color: var(--ink);
+            background: var(--gold);
+            box-shadow: 0 16px 36px rgba(212, 175, 55, 0.30);
+        }
+
+        .button.secondary {
+            color: var(--ink);
+            background: transparent;
+            border: 1px solid rgba(24, 18, 15, 0.18);
+        }
+
+        .menu-toggle {
+            color: var(--ink);
+            background: var(--white);
+            border-color: rgba(24, 18, 15, 0.14);
+            border-radius: 50%;
+            font-size: 0.76rem;
+            font-weight: 900;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 72px 0 42px;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(212, 175, 55, 0.20), transparent 24%),
+                linear-gradient(135deg, var(--sand), var(--cream) 46%, var(--blush));
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -140px;
+            bottom: -170px;
+            width: 440px;
+            height: 440px;
+            border-radius: 50%;
+            background: rgba(46, 139, 87, 0.12);
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+        }
+
+        .eyebrow {
+            color: var(--terracotta);
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+        }
+
+        .eyebrow::before {
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            max-width: 660px;
+            font-size: clamp(3.7rem, 8vw, 7.7rem);
+            letter-spacing: -0.065em;
+        }
+
+        .hero p,
+        .section-header p,
+        .service-card p,
+        .feature-list li,
+        .process-card p,
+        .page-banner p {
+            color: var(--muted);
+        }
+
+        .hero p {
+            max-width: 580px;
+            font-size: clamp(1.04rem, 2vw, 1.24rem);
+        }
+
+        .hero-media {
+            position: relative;
+            min-height: 620px;
+            z-index: 1;
+        }
+
+        .portrait-card,
+        .floating-card,
+        .mini-photo {
+            overflow: hidden;
+            border-radius: 42px;
+            box-shadow: var(--shadow);
+        }
+
+        .portrait-card {
+            position: absolute;
+            inset: 0 0 58px 105px;
+            background:
+                linear-gradient(180deg, rgba(24, 18, 15, 0.02), rgba(24, 18, 15, 0.30)),
+                url("https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1100&q=82") center/cover;
+        }
+
+        .mini-photo {
+            position: absolute;
+            top: 34px;
+            right: 12px;
+            width: 190px;
+            height: 230px;
+            border: 10px solid var(--cream);
+            background: url("https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=600&q=82") center/cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: min(340px, 72%);
+            padding: 25px;
+            color: var(--ink);
+            background: var(--white);
+        }
+
+        .floating-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-family: "DM Serif Display", Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.05;
+        }
+
+        .floating-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .hero-card {
+            min-height: 620px;
+            border: 12px solid var(--cream);
+            border-radius: 48px;
+            background-image:
+                linear-gradient(180deg, rgba(24, 18, 15, 0.03), rgba(24, 18, 15, 0.44)),
+                url("https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1100&q=82");
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card::before {
+            display: none;
+        }
+
+        .hero-stat {
+            left: -36px;
+            bottom: 34px;
+            max-width: 330px;
+            color: var(--ink);
+            background: var(--white);
+            border: 0;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-stat strong {
+            font-family: "DM Serif Display", Georgia, serif;
+            font-size: 3rem;
+            font-weight: 400;
+        }
+
+        .trust-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 34px;
+            max-width: 610px;
+        }
+
+        .trust-pill {
+            padding: 16px;
+            border: 1px solid rgba(24, 18, 15, 0.09);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.58);
+        }
+
+        .trust-pill strong {
+            display: block;
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
+        .trust-pill span {
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .category-strip {
+            position: relative;
+            z-index: 2;
+            margin-top: 44px;
+        }
+
+        .category-card-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .category-card {
+            min-height: 132px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding: 18px;
+            border-radius: 28px;
+            color: var(--cream);
+            background: var(--ink);
+            box-shadow: 0 18px 45px rgba(48, 34, 26, 0.10);
+            position: relative;
+            isolation: isolate;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .category-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background: var(--card-image) center/cover;
+            transition: transform 0.45s ease;
+        }
+
+        .category-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(24, 18, 15, 0.10), rgba(24, 18, 15, 0.76));
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .category-card:hover::before {
+            transform: scale(1.08);
+        }
+
+        .category-card span {
+            color: var(--gold);
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .category-card strong {
+            margin-top: 4px;
+            font-size: 1rem;
+            line-height: 1.15;
+        }
+
+        .section {
+            padding: 94px 0;
+        }
+
+        .section.green {
+            color: var(--cream);
+            background: var(--ink);
+        }
+
+        .section.green .section-header p,
+        .section.green .process-card p {
+            color: rgba(255, 250, 244, 0.72);
+        }
+
+        .section h2,
+        .page-banner h1 {
+            font-size: clamp(2.55rem, 5vw, 5rem);
+        }
+
+        .service-grid {
+            gap: 24px;
+        }
+
+        .service-card {
+            position: relative;
+            min-height: 390px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding: 0;
+            color: var(--cream);
+            background: var(--ink);
+            border: 0;
+            border-radius: 34px;
+            box-shadow: 0 18px 45px rgba(48, 34, 26, 0.10);
+            isolation: isolate;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background: var(--service-image) center/cover;
+            transition: transform 0.45s ease;
+        }
+
+        .service-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(24, 18, 15, 0.08), rgba(24, 18, 15, 0.80));
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+        }
+
+        .service-card:hover::before {
+            transform: scale(1.08);
+        }
+
+        .service-card .icon {
+            width: auto;
+            height: auto;
+            margin: 0 24px 12px;
+            color: var(--gold);
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            box-shadow: none;
+        }
+
+        .service-card h3,
+        .service-card p,
+        .service-card .button {
+            margin-left: 24px;
+            margin-right: 24px;
+        }
+
+        .service-card h3 {
+            color: var(--cream);
+            font-size: 1.45rem;
+        }
+
+        .service-card p {
+            color: rgba(255, 250, 244, 0.78);
+            margin-bottom: 24px;
+        }
+
+        .service-card .button {
+            margin-bottom: 24px;
+            color: var(--ink);
+            background: var(--cream);
+        }
+
+        .service-card:nth-child(1) { --service-image: url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80"); }
+        .service-card:nth-child(2) { --service-image: url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80"); }
+        .service-card:nth-child(3) { --service-image: url("https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=900&q=80"); }
+        .service-card:nth-child(4) { --service-image: url("https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"); }
+        .service-card:nth-child(5) { --service-image: url("https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80"); }
+        .service-card:nth-child(6) { --service-image: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80"); }
+
+        .feature-panel,
+        .form-card,
+        .contact-card,
+        .process-card {
+            border: 1px solid rgba(24, 18, 15, 0.08);
+            border-radius: 34px;
+            background: var(--white);
+            box-shadow: 0 18px 45px rgba(48, 34, 26, 0.10);
+        }
+
+        .process-card .icon {
+            color: var(--ink);
+            background: var(--gold);
+            border: 0;
+        }
+
+        .page-banner {
+            color: var(--cream);
+            background:
+                linear-gradient(120deg, rgba(24, 18, 15, 0.74), rgba(24, 18, 15, 0.46)),
+                url("https://images.unsplash.com/photo-1607008829749-c0f284a4980f?auto=format&fit=crop&w=1800&q=82") center/cover;
+        }
+
+        .contact-card {
+            color: var(--cream);
+            background: var(--ink);
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: rgba(255, 250, 244, 0.76);
+        }
+
+        input,
+        select {
+            color: var(--ink);
+            background: var(--cream);
+            border-color: rgba(24, 18, 15, 0.14);
+            border-radius: 18px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.16);
+        }
+
+        .site-footer {
+            background: #120e0c;
+        }
+
+        @media (max-width: 760px) {
+            .nav-links {
+                background: var(--cream);
+                border-color: rgba(24, 18, 15, 0.08);
+            }
+
+            .hero {
+                padding-top: 48px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3.25rem, 18vw, 5.25rem);
+            }
+
+            .hero-media {
+                min-height: 470px;
+            }
+
+            .portrait-card {
+                inset: 0 0 72px 36px;
+                border-radius: 32px;
+            }
+
+            .mini-photo {
+                width: 145px;
+                height: 175px;
+                right: 0;
+            }
+
+            .floating-card {
+                width: min(310px, 86%);
+                border-radius: 28px;
+            }
+
+            .trust-row,
+            .category-card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                min-height: 360px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="promo-bar">15% launch offer on sculpting consultations. <a href="?page=book#appointment">Book your private appointment</a></div>
+
     <header class="site-header">
         <div class="container nav-wrap">
             <a class="logo" href="?page=home" aria-label="BodyNova home">
                 <span class="logo-mark">BN</span>
-                <span>BodyNova</span>
+                <span class="brand-word">BodyNova</span>
             </a>
 
             <nav class="nav-links" id="primaryNav" aria-label="Primary navigation">
@@ -772,7 +1376,7 @@ function e(string $value): string
                 <a href="?page=contact"<?php echo active_nav($page, 'contact'); ?>>Contact</a>
             </nav>
 
-            <a class="button desktop-cta" href="?page=book#appointment">Book Now</a>
+            <a class="button gold desktop-cta" href="?page=book#appointment">Book Now</a>
             <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false">Menu</button>
         </div>
     </header>
@@ -782,19 +1386,37 @@ function e(string $value): string
             <section class="hero">
                 <div class="container hero-grid">
                     <div>
-                        <span class="eyebrow">Medical Luxury Aesthetics</span>
+                        <span class="eyebrow">Luxury aesthetic concierge</span>
                         <h1>Sculpt the Best Version of Yourself</h1>
-                        <p>Personalized body sculpting and advanced skin treatments designed for refined, natural-looking confidence in a calm clinical setting.</p>
+                        <p>Body sculpting and skin treatments with the polished ease of a premium beauty concierge, delivered in a calm medical-luxury clinic.</p>
                         <div class="hero-actions">
-                            <a class="button" href="?page=book#appointment">Request an Appointment</a>
-                            <a class="button secondary" href="?page=services">Explore Treatments</a>
+                            <a class="button" href="?page=book#appointment">Request Appointment</a>
+                            <a class="button secondary" href="?page=services">View E-Menu</a>
+                        </div>
+                        <div class="trust-row" aria-label="Clinic highlights">
+                            <div class="trust-pill"><strong>6</strong><span>Signature services</span></div>
+                            <div class="trust-pill"><strong>1:1</strong><span>Private planning</span></div>
+                            <div class="trust-pill"><strong>VIP</strong><span>Aftercare guidance</span></div>
                         </div>
                     </div>
-                    <div class="hero-card" role="img" aria-label="Luxury medical spa treatment room">
-                        <div class="hero-stat">
-                            <strong>6</strong>
-                            signature treatments tailored to body definition, skin glow, and healthy recovery.
+                    <div class="hero-media" aria-label="Luxury aesthetics clinic imagery">
+                        <div class="portrait-card"></div>
+                        <div class="mini-photo"></div>
+                        <div class="floating-card">
+                            <strong>Beauty, booked beautifully.</strong>
+                            <p>Choose your treatment, send your request, and our concierge confirms the most comfortable appointment window.</p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="container category-strip">
+                    <div class="category-card-grid">
+                        <?php foreach ($serviceDetails as $detail): ?>
+                            <a class="category-card" href="?page=book#appointment" style="--card-image: url('<?php echo e($detail['image']); ?>')">
+                                <span><?php echo e($detail['category']); ?></span>
+                                <strong><?php echo e($detail['title']); ?></strong>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </section>
